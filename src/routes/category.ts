@@ -1,6 +1,6 @@
 import express from "express";
 import { databaseService } from "../services";
-import {auth} from '../middleware/auth'
+import {auth} from '../middleware/auth.middleware'
 import { deleteCategory, getCategories, postCategory } from "../controllers/category.controller";
 
 const router = express.Router();

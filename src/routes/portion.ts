@@ -1,6 +1,6 @@
 import express from 'express';
 import { deletePortionById, getPortions, getPortionsByDish, postPortionsForDish } from '../controllers/portion.controller';
-import { auth } from '../middleware/auth';
+import { auth } from '../middleware/auth.middleware';
 
 const router = express.Router();
 

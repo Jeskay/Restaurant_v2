@@ -2,7 +2,7 @@ import express from "express";
 import {cloudinaryService, databaseService} from '../services'
 import fileUpload from "express-fileupload";
 import { deleteDish, getDishByName, getDishesByCategory, postDish, updateDish } from "../controllers/dish.controller";
-import {auth} from "../middleware/auth"
+import {auth} from "../middleware/auth.middleware"
 
 const router = express.Router();
 

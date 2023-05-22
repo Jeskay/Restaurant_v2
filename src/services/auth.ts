@@ -1,5 +1,5 @@
 import { databaseService } from ".";
-import { userDto } from "../dto/user";
+import { UserDto } from "../dto/user";
 import bcrypt from "bcrypt"
 import jwt, {} from 'jsonwebtoken'
 
@@ -15,7 +15,7 @@ export class AuthenticationService {
         return jwt.verify(token, this.secretKey)
     }
 
-    public async register(user: userDto) {
+    public async register(user: UserDto) {
         user.password = await bcrypt.hash(user.password, this.saltRounds);
         await databaseService.createUser(user)
     }
