@@ -1,0 +1,41 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id Int @id @default(autoincrement())
+  email String @unique
+  name String?
+  password String
+}
+
+model Category {
+  name   String @id
+  dishes Dish[]
+}
+
+model Dish {
+  categoryName String
+  description  String?
+  image        String?
+  name         String    @id
+  category     Category  @relation(fields: [categoryName], references: [name], onDelete: Cascade)
+  portions     Portion[]
+}
+
+model Portion {
+  id       Int    @id @default(autoincrement())
+  cost     Int
+  amount   Int
+  dishName String
+  measure  String @default("грамм")
+  dish     Dish   @relation(fields: [dishName], references: [name], onDelete: Cascade)
+}
