@@ -4,9 +4,11 @@ import authRouter from './routes/auth'
 import dishRouter from './routes/dish'
 import categoryRouter from './routes/category'
 import portionRouter from './routes/portion'
+import cors from 'cors'
 
 const app = express();
 
+app.use(cors());
 app.use(fileupload());
 app.use(express.urlencoded({extended: true}))
 app.use(authRouter);

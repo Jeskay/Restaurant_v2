@@ -10,6 +10,6 @@ router.get('/dish/:category', getDishesByCategory);
 router.get('/dish/:name', getDishByName);
 router.post('/dish', auth, postDish);
 router.put('/dish/:name', auth, updateDish);
-router.delete('/dishes/:name', auth, deleteDish);
+router.delete('/dish/:name', auth, deleteDish);
 
 export default router;
