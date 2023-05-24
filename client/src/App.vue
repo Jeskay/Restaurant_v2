@@ -37,17 +37,17 @@ const authenticated = computed(() => {
 </script>
 
 <template>
-  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <nav class="navigation">
     <div class="container"> 
-      <a class="navbar-brand">Ресторан Шалам-Пополам</a>
-      <ul class="navbar-nav">
-        <li class="nav-item">
+      <a class="navigation__brand">Ресторан Шалам-Пополам</a>
+      <ul class="navigation__list">
+        <li class="navigation__list__item">
           <a class="nav-link" href="#/">Меню</a>
         </li>
-        <li v-if="authenticated" class="nav-item">
+        <li v-if="authenticated" class="navigation__list__item">
           <a class="nav-link" href="#/create">Добавить Блюдо</a>
         </li>
-        <li v-else class="nav-item">
+        <li v-else class="navigation__list__item">
           <a class="nav-link" href="#/login">Войти</a>
         </li>
       </ul>
@@ -57,10 +57,22 @@ const authenticated = computed(() => {
 </template>
 
 <style lang="scss" scoped>
-  body {
-    background: 
-      radial-gradient(10% 10%,#fff 98%,#0000),
-      radial-gradient(54% 54%,#0000 98%,#c39f76) 50px 50px;
-    background-size:100px 100px;
-  }
+
+.navigation {
+    @extend .navbar, .navbar-expand-lg, .shadow-sm;
+    background-color: rgb(222, 238, 252);
+
+    &__brand {
+      @extend .navbar-brand;
+    }
+
+    &__list {
+      @extend .navbar-nav;
+
+      &__item {
+        @extend .nav-item;
+      }
+    }
+}
+
 </style>

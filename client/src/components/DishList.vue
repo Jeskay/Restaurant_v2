@@ -28,13 +28,21 @@ onBeforeMount( async () => {
 </script>
 
 <template>
-    <DishFilterPanel @category-selected="onCategorySelected"></DishFilterPanel>
-    <div>
-      <DishCard v-for="item in dishStore.getDishes" :key="item.name" :dish="item">
-      </DishCard>
+    <div class="container">
+        <DishFilterPanel @category-selected="onCategorySelected"></DishFilterPanel>
+        <DishCard v-for="item in dishStore.getDishes" :key="item.name" :dish="item">
+        </DishCard>
     </div>
 </template>
 
-<style>
-
+<style lang="scss" scoped>
+    .container {
+        background-color: aliceblue;
+    }
+    
+    @media only screen and (max-width: 720px) {
+        .container{
+          width: 80vh;
+        }
+    }
 </style>

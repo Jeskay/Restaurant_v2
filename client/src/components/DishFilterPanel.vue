@@ -14,9 +14,9 @@ function selectCategory(event) {
 </script>
 
 <template>
-    <div class="text-center" style="border-bottom: 2px solid black; padding: 2rem;">
+    <div class="header header--bold">
       <h3> Выберите категорию меню </h3>
-      <select class="form-select" @change="selectCategory">
+      <select class="select-form" @change="selectCategory">
         <option v-for="category in store.getCategories" :key="category.name" :value="category.name" >
           {{ category.name }}
         </option>
@@ -25,5 +25,17 @@ function selectCategory(event) {
 </template>
 
 <style lang="scss" scoped>
-
+  .header {
+    @extend .text-center;
+    background-color:transparent;
+    &--bold {
+      border-bottom: 2px solid black; 
+      padding: 2rem;
+    }
+    .select-form {
+      @extend .form-select;
+      max-width: fit-content;
+      margin: auto;
+    }
+  }
 </style>

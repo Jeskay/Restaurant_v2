@@ -22,16 +22,34 @@ function add() {
 </script>
 
 <template>
-    <div class="input-group mb-3 my-3" style="width:fit-content">
-        <input v-model="state.amount" type="number" class="form-control" placeholder="Количество">
-        <input v-model="state.measure" type="text" class="form-control" placeholder="Мера измерения">
-        <span class="input-group-text">/</span>
-        <input v-model="state.cost" type="number" class="form-control" placeholder="Цена">
-        <span class="input-group-text">₽</span>
-        <button @click="add" :disabled="emptyInput" type="button" class="btn bg-primary">Добавить</button>
+    <div class="group">
+        <input class="group__input" v-model="state.amount" type="number"  placeholder="Количество">
+        <input class="group__input" v-model="state.measure" type="text" placeholder="Мера измерения">
+        <span class="group__text">/</span>
+        <input class="group__input" v-model="state.cost" type="number" placeholder="Цена">
+        <span class="group__text">₽</span>
+        <button class="button" @click="add" :disabled="emptyInput" type="button" >Добавить</button>
     </div>
 </template>
 
-<style>
-
+<style lang="scss" scoped>
+    .group {
+        @extend .input-group;
+        margin-top: 0.75rem;
+        margin-bottom: 0.75rem;
+        width:fit-content;
+        &__input {
+            @extend .form-control;
+        }
+        &__text {
+            @extend .input-group-text;
+        }
+    }
+    .button {
+        @extend .btn;
+        background-color: rgb(116, 200, 228);
+    }
+    .button:hover {
+        background-color: lightblue;
+    }
 </style>
